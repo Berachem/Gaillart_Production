@@ -1,16 +1,8 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import { ProjectCard } from "@/components/ProjectCard";
-import { ProjectType } from "@/types/ProjectType";
-import { SocialLinks } from "@/types/SocialLinks";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { fakeProjects } from "@/fakeProjects"; // <-- nouvel import
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Footer } from "@/components/Footer"; // <-- nouvel import

@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Film, Mail, Phone } from "lucide-react";
+
 import { ProjectCard } from "@/components/ProjectCard";
-import { ProjectType } from "@/types/ProjectType";
+
 import { BlurFade } from "@/components/ui/blur-fade";
 import { fakeProjects } from "@/fakeProjects";
 import { Footer } from "@/components/Footer";
@@ -14,10 +11,6 @@ import Marquee from "react-fast-marquee"; // <-- nouvel import
 export function Home() {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
   const [projectsRef, projectsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  const [contactRef, contactInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
