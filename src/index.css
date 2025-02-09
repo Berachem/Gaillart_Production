@@ -60,4 +60,14 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+  }
+  .darken-on-hover {
+    transition: filter 0.3s ease;
+  }
+  .darken-on-hover:hover {
+    filter: brightness(70%);
+  }
 }

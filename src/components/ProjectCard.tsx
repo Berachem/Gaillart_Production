@@ -1,29 +1,20 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ProjectType } from "@/types/ProjectType";
+import { Project } from "@/types/Project";
 
-interface ProjectCardProps {
-  title: string;
-  image: string;
-  slug: string;
-  type: string;
-}
+export interface ProjectCardProps
+  extends Pick<Project, "title" | "image" | "slug" | "type"> {}
 
 export function ProjectCard({ title, image, slug, type }: ProjectCardProps) {
   return (
     <Link to={`/project/${slug}`}>
-      <motion.div
-        whileHover={{ scale: 1.02 }}
-        className="relative aspect-video overflow-hidden rounded-lg"
-      >
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center">
-          <h3 
-            className="font-['Montserrat'] text-[25px] font-medium tracking-[3.5px] text-white text-center mb-2"
-            style={{ textShadow: '1px -4px 11px #000000' }}
+      <motion.div className="relative aspect-video overflow-hidden rounded-lg">
+        <img src={image} alt={title} className="w-full h-full object-cover " />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center hover:bg-black/60 transition-all duration-300">
+          <h3
+            className="font-['Montserrat'] text-[25px]  tracking-[3.5px] text-white text-center mb-2"
+            style={{ textShadow: "1px -4px 11px #000000", fontWeight: 500 }}
           >
             {title}
           </h3>
