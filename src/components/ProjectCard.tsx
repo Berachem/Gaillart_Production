@@ -7,7 +7,7 @@ export interface ProjectCardProps
 
 export function ProjectCard({ title, image, slug, type }: ProjectCardProps) {
   return (
-    <Link to={`/project/${slug}`}>
+    <a href={`/project/${slug}`}>
       <motion.div className="relative aspect-video overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full h-full object-cover " />
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center hover:bg-black/60 transition-all duration-300">
@@ -22,6 +22,6 @@ export function ProjectCard({ title, image, slug, type }: ProjectCardProps) {
           </p>
         </div>
       </motion.div>
-    </Link>
+    </a>
   );
 }
