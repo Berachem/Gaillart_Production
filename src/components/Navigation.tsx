@@ -31,7 +31,7 @@ export function Navigation() {
       >
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold text-white">
-            Visual Stories
+            Amir GAILLOT
           </Link>
 
           {/* Desktop Navigation */}

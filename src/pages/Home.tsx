@@ -119,7 +119,7 @@ export function Home() {
           className="relative z-10 text-center"
         >
           <h1 className="text-6xl md:text-8xl mb-6 text-[#FFB84D] ">
-            <strong>Visual Stories</strong>
+            <strong>L'Amiral</strong>
           </h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
             <strong>We create</strong> compelling visual narratives that{" "}
