@@ -79,10 +79,10 @@ const About = () => {
         transition={{ duration: 0.88, delay: 1.5 }}
       >
         <p className="text-5xl md:text-7xl z-50 text-white font-calendas italic">
-          Une histoire visuelle
+          Une histoire
         </p>
         <p className="text-2xl md:text-2xl z-50 text-white font-calendas italic">
-          Nous sommes un studio de création visuelle
+          Nous sommes un studio de création audiovisuelle
         </p>
         <a
           href="/contact"
