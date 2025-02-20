@@ -10,8 +10,9 @@ import BG_Contact from "../assets/videos/bg-contact.mp4";
 const Contact: React.FC = () => {
   return (
     <div className="relative w-full h-screen text-white">
-      {/* Video de fond */}
+      {/* Vidéo de fond avec fond noir pendant le chargement */}
       <video
+        style={{ backgroundColor: "black" }}
         className="absolute inset-0 -z-10 object-cover w-full h-full"
         autoPlay
         loop
