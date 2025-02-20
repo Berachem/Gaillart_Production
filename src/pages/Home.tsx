@@ -7,13 +7,11 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { fakeProjects } from "@/fakeProjects";
 import { Footer } from "@/components/Footer";
 import Marquee from "react-fast-marquee"; // <-- nouvel import
+import { WeDoFancy } from "@/components/WeDoFancy";
 
 export function Home() {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
-  const [projectsRef, projectsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [projectsRef, projectsInView] = useInView({ triggerOnce: true });
 
   const categories = [
     {
@@ -119,11 +117,11 @@ export function Home() {
           className="relative z-10 text-center"
         >
           <h1 className="text-6xl md:text-8xl mb-6 text-[#FFB84D] ">
-            <strong>L'Amiral</strong>
+            <strong>Wag'art</strong>
           </h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
-            <strong>We create</strong> compelling visual narratives that{" "}
-            <strong>captivate</strong> and <strong>inspire</strong>.
+            <strong>Nous créons</strong> des récits audiovisuels captivants qui{" "}
+            <strong>séduisent</strong> et <strong>inspirent</strong>.
           </p>
         </motion.div>
       </section>
@@ -188,8 +186,10 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
+      <WeDoFancy />
+      <div className="pb-12">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export function ProjectDetail() {
   if (!project) return <div>Project not found</div>;
 
   return (
-    <div className="overflow-x-hidden bg-black">
+    <div className="overflow-x-hidden bg-black text-white pb-5">
       {/* Hero Image */}
       <div className="h-[70vh] relative">
         <img
