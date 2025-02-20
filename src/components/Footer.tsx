@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="px-6 md:px-12">
+    <footer className="px-6 md:px-12 ">
       <div className="container mx-auto"></div>
       <div className="flex flex-col md:flex-row justify-between items-center">
         {/*         <div className="mb-6 md:mb-0">
