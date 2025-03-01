@@ -45,11 +45,11 @@ const Contact: React.FC = () => {
               <div className="space-y-4 text-white">
                 <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6" />
-                  <span>bonjour@visualstories.com</span>
+                  <span>gaillart.production@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="w-6 h-6" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+33 6 59 07 15 86</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Film className="w-6 h-6" />
