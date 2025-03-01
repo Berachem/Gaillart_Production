@@ -43,10 +43,10 @@ const Contact: React.FC = () => {
                 Contactez-nous pour discuter de votre prochain projet.
               </p>
               <div className="space-y-4 text-white">
-                <div className="flex items-center gap-4">
+                {/*   <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6" />
                   <span>gaillart.production@gmail.com</span>
-                </div>
+                </div> */}
                 <div className="flex items-center gap-4">
                   <Phone className="w-6 h-6" />
                   <span>+33 6 59 07 15 86</span>
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                   placeholder="Message"
                   className="border border-white text-black bg-transparent placeholder-white min-h-[150px] bg-white"
                 />
-                <Button className="w-full bg-[#FFB84D] text-black">
+                <Button className="w-full bg-[#FFB84D] text-black hover:bg-[#FFB84D]/80 transition duration-300">
                   Envoyer le Message 🚀
                 </Button>
               </form>

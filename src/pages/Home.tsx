@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import Marquee from "react-fast-marquee"; // <-- nouvel import
 import { WeDoFancy } from "@/components/WeDoFancy";
 
+import GAILLART_LOGO from "../assets/img/gaillart-logo.png";
+
 export function Home() {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
   const [projectsRef, projectsInView] = useInView({ triggerOnce: true });
@@ -114,11 +116,13 @@ export function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
-          className="relative z-10 text-center"
+          className="relative z-10 text-center justify-center"
         >
-          <h1 className="text-6xl md:text-8xl mb-6 text-[#FFB84D] ">
-            <strong>Gaillart Production</strong>
-          </h1>
+          <img
+            src={GAILLART_LOGO}
+            alt="Gaillart Production"
+            className="h-56 md:h-96 mb-6 mx-auto"
+          />
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
             <strong>Nous créons</strong> des récits audiovisuels captivants qui{" "}
             <strong>séduisent</strong> et <strong>inspirent</strong>.
