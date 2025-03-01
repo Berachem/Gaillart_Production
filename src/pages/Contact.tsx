@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, Phone, Film } from "lucide-react";
+import { Phone, Film } from "lucide-react";
 import React from "react";
 import BG_Contact from "../assets/videos/bg-contact.mp4";
 
