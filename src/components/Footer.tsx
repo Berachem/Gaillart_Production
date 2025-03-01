@@ -17,7 +17,7 @@ export function Footer() {
       </div>
       <div className="mt-12 text-center">
         <p>
-          &copy; {new Date().getFullYear()} Agence Audiovisuel. Tous droits
+          &copy; {new Date().getFullYear()} Gaillart Production. Tous droits
           réservés.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center mt-4 ">

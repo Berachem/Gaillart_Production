@@ -117,7 +117,7 @@ export function Home() {
           className="relative z-10 text-center"
         >
           <h1 className="text-6xl md:text-8xl mb-6 text-[#FFB84D] ">
-            <strong>Wag'art</strong>
+            <strong>Gaillart Production</strong>
           </h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
             <strong>Nous créons</strong> des récits audiovisuels captivants qui{" "}

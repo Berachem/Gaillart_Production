@@ -30,7 +30,7 @@ export function Navigation() {
       >
         <div className="flex justify-between items-center">
           <a href="/" className="text-2xl font-bold text-white">
-            Wag'art
+            Gaillart Production
           </a>
 
           {/* Desktop Navigation */}
