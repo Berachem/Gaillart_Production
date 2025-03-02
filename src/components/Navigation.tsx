@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import GAILLART_LOGO from "../assets/img/gaillart-logo-horizontal.png";
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +32,11 @@ export function Navigation() {
       >
         <div className="flex justify-between items-center">
           <a href="/" className="text-2xl font-bold text-white">
-            Gaillart Production
+            <img
+              src={GAILLART_LOGO}
+              alt="Gaillart Production"
+              className="h-12"
+            />
           </a>
 
           {/* Desktop Navigation */}

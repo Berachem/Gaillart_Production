@@ -139,7 +139,7 @@ export function Home() {
           className="max-w-[2000px] mx-auto"
         >
           <BlurFade delay={0.25} inView>
-            <h2 className="text-4xl md:text-5xl mb-16 text-center text-[#FFB84D] ">
+            <h2 className="text-4xl md:text-5xl mb-16 text-center text-gold">
               <span>NOS </span> <span className="font-bold">RÉALISATIONS</span>
             </h2>
           </BlurFade>
@@ -162,7 +162,7 @@ export function Home() {
       <section className="py-24 px-6 md:px-12 bg-black">
         <div className="max-w-[2000px] mx-auto">
           <BlurFade delay={0.25} inView>
-            <h2 className="text-3xl md:text-4xl mb-16 text-center text-[#FFB84D] ">
+            <h2 className="text-3xl md:text-4xl mb-16 text-center text-gold ">
               <span>SIX FAÇONS DE FAIRE </span>{" "}
               <span className="font-bold"> VIBRER</span> VOS{" "}
               <span className="font-bold">IDÉES</span>

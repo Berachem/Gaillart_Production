@@ -109,7 +109,7 @@ export function ProjectDetail() {
       {/* Projects Section */}
       <section className="py-24 px-6 md:px-12 ">
         <BlurFade delay={0.25} inView>
-          <h2 className="text-4xl md:text-5xl mb-16 text-center text-[#FFB84D] ">
+          <h2 className="text-4xl md:text-5xl mb-16 text-center text-gold ">
             <span>Autres </span> <span className="font-bold">RÉALISATIONS</span>
           </h2>
         </BlurFade>

@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#FFB84D]">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gold">
                 <strong>Contactez-nous!</strong>
               </h2>
               <p className="text-white mb-8 text-lg">
@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
                 <Button
                   type="submit"
                   disabled={!email.trim() || !subject.trim() || !message.trim()}
-                  className="w-full bg-[#FFB84D] text-black hover:bg-[#FFB84D]/80 transition duration-300"
+                  className="w-full bg-gold text-black hover:bg-gold/80 transition duration-300"
                 >
                   Envoyer le Message 🚀
                 </Button>
