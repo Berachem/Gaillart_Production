@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Phone, Film } from "lucide-react";
+import { Phone, Film, YoutubeIcon } from "lucide-react";
 import React, { useState, useRef } from "react";
 import BG_Contact from "../assets/videos/bg-contact.mp4";
 import emailjs from "@emailjs/browser";
+import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -97,13 +98,60 @@ const Contact: React.FC = () => {
                   <Mail className="w-6 h-6" />
                   <span>gaillart.production@gmail.com</span>
                 </div> */}
-                <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6" />
-                  <span>+33 6 59 07 15 86</span>
-                </div>
+
                 <div className="flex items-center gap-4">
                   <Film className="w-6 h-6" />
                   <span>Disponible pour des projets dans le monde entier</span>
+                </div>
+                <div className="flex ">
+                  <a
+                    href="https://www.snapchat.com/add/gaillart.pro"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mr-4"
+                  >
+                    <img
+                      src="https://img.icons8.com/m_sharp/512/FFFFFF/snapchat.png"
+                      alt="Snapchat"
+                      className="w-6 h-6"
+                    />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@Gaillart-Production"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mr-4"
+                  >
+                    <YoutubeIcon className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@gaillartproduction"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mr-4"
+                  >
+                    <img
+                      src="https://img.icons8.com/win10/512/FFFFFF/tiktok.png"
+                      alt="TikTok"
+                      className="w-6 h-6"
+                    />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/gaillart.production?igsh=b2VkOTIyNWJrbnR3"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mr-4"
+                  >
+                    <InstagramLogoIcon className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://discord.gg/PbcNZsXyyb"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mr-4"
+                  >
+                    <DiscordLogoIcon className="w-6 h-6" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -157,7 +205,7 @@ const Contact: React.FC = () => {
           </div>
         </motion.div>
         <div className="bg-black sm:bg-transparent">
-          <Footer />
+          <Footer showSocialNetworks={false} />
         </div>
       </div>
     </div>

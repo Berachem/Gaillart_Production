@@ -27,7 +27,6 @@ function WeDoFancy() {
               //"des films de mariage 🎉",
               "des clips musicaux 🎵",
               "publicités 📺",
-              "🕶️🕶️🕶️",
             ]}
             mainClassName="text-white px-2 sm:px-2 md:px-3 bg-gold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom={"last"}
