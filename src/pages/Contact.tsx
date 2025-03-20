@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Phone, Film, YoutubeIcon } from "lucide-react";
+import { Film, YoutubeIcon } from "lucide-react";
 import React, { useState, useRef } from "react";
 import BG_Contact from "../assets/videos/bg-contact.mp4";
 import emailjs from "@emailjs/browser";
