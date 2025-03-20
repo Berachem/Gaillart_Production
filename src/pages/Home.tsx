@@ -42,28 +42,33 @@ export function Home() {
     },
   ];
 
-  const companies = [
-    {
-      name: "Hermes",
-      image:
-        "https://upload.wikimedia.org/wikipedia/fr/4/43/Logo_Herm%C3%A8s.svg",
-    },
-    {
-      name: "Carrefour",
-      image:
-        "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
-    },
+  interface Company {
+    name: string;
+    image: string;
+  }
 
-    {
-      name: "Total",
-      image:
-        "https://companieslogo.com/img/orig/TTE_BIG-cf13cf30.png?t=1720244494",
-    },
-    {
-      name: "Kitchen",
-      image:
-        "https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png",
-    },
+  const companies: Company[] = [
+    /*   {
+        name: "Hermes",
+        image:
+          "https://upload.wikimedia.org/wikipedia/fr/4/43/Logo_Herm%C3%A8s.svg",
+      },
+      {
+        name: "Carrefour",
+        image:
+          "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
+      },
+
+      {
+        name: "Total",
+        image:
+          "https://companieslogo.com/img/orig/TTE_BIG-cf13cf30.png?t=1720244494",
+      },
+      {
+        name: "Kitchen",
+        image:
+          "https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png",
+      }, */
   ];
 
   return (

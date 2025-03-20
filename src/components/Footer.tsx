@@ -1,3 +1,5 @@
+import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+
 export function Footer() {
   return (
     <footer className="px-6 md:px-12 ">
@@ -16,6 +18,25 @@ export function Footer() {
         </div> */}
       </div>
       <div className="mt-12 text-center">
+        {/* Réseaux sociaux Instagram et Discord */}
+        <div className="flex justify-center mb-4">
+          <a
+            href="https://www.instagram.com/gaillart.production?igsh=b2VkOTIyNWJrbnR3"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <InstagramLogoIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://discord.gg/PbcNZsXyyb"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <DiscordLogoIcon className="w-6 h-6" />
+          </a>
+        </div>
         <p>
           &copy; {new Date().getFullYear()} Gaillart Production. Tous droits
           réservés.
