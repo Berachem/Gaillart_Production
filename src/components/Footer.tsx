@@ -1,4 +1,5 @@
 import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+import { YoutubeIcon } from "lucide-react";
 
 export function Footer() {
   return (
@@ -20,6 +21,38 @@ export function Footer() {
       <div className="mt-12 text-center">
         {/* Réseaux sociaux Instagram et Discord */}
         <div className="flex justify-center mb-4">
+          <a
+            href="https://www.snapchat.com/add/gaillart.pro"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <img
+              src="https://img.icons8.com/m_sharp/512/FFFFFF/snapchat.png"
+              alt="Snapchat"
+              className="w-6 h-6"
+            />
+          </a>
+          <a
+            href="https://www.youtube.com/@Gaillart-Production"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <YoutubeIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@gaillartproduction"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <img
+              src="https://img.icons8.com/win10/512/FFFFFF/tiktok.png"
+              alt="TikTok"
+              className="w-6 h-6"
+            />
+          </a>
           <a
             href="https://www.instagram.com/gaillart.production?igsh=b2VkOTIyNWJrbnR3"
             target="_blank"
