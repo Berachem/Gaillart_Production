@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { ProjectCard } from "@/components/ProjectCard";
+import { MediaRenderer } from "@/components/MediaRenderer";
 
 import { BlurFade } from "@/components/ui/blur-fade";
 import { fakeProjects } from "@/fakeProjects";
@@ -28,28 +29,29 @@ export function Home() {
   const categories = [
     {
       title: "Publicité TV",
-      image:
+      media:
         "https://plus.unsplash.com/premium_photo-1682126367699-e925894017b5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       title: "Film Corporate",
-      image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738",
+      media: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738",
     },
     {
       title: "Snack Content",
-      image: "https://images.unsplash.com/photo-1533063319369-0de118afe00a",
+      media:
+        "https://videos.pexels.com/video-files/7689163/7689163-uhd_2732_1440_24fps.mp4",
     },
     {
       title: "Film Événementiel",
-      image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
+      media: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
     },
     {
       title: "Tourisme",
-      image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce",
+      media: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce",
     },
     {
       title: "Micro Documentaire",
-      image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1",
+      media: "https://images.unsplash.com/photo-1536440136628-849c177e76a1",
     },
   ];
 
@@ -168,7 +170,7 @@ export function Home() {
               <div key={project.slug}>
                 <ProjectCard
                   title={project.title}
-                  image={project.image}
+                  thumbnail={project.thumbnail}
                   slug={project.slug}
                   type={project.type}
                 />
@@ -202,11 +204,10 @@ export function Home() {
                 key={category.title}
                 className="relative aspect-[16/9] overflow-hidden rounded-lg"
               >
-                <img
-                  src={category.image}
+                <MediaRenderer
+                  src={category.media}
                   alt={category.title}
                   className="w-full h-full object-cover darken-on-hover-media"
-                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/60 transition-all duration-300">
                   <h3 className="text-2xl font-medium text-white text-center">

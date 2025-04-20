@@ -1,6 +1,6 @@
 import { Project } from "@/types/Project";
 import { ProjectType } from "@/types/ProjectType";
-
+import CampingBenBellecVideo from "@/assets/projects/camping_ben_bellec/videoLongue.mp4";
 const randomImage = (width: number, height: number) =>
   `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
 
@@ -11,10 +11,10 @@ export const fakeProjects: Project[] = [
     type: ProjectType.PubliciteTV,
     description:
       "Une campagne publicitaire captivante mettant en vedette les athletes de la Federation Francaise de la Montagne et de l'Escalade",
-    image: "https://images.unsplash.com/photo-1522163182402-834f871fd851",
+    thumbnail: "https://images.unsplash.com/photo-1522163182402-834f871fd851",
     gallery: [
       randomImage(600, 400),
-      randomImage(600, 400),
+      "https://videos.pexels.com/video-files/3045163/3045163-720p.mp4",
       randomImage(600, 400),
     ],
     socialLinks: {
@@ -31,10 +31,10 @@ export const fakeProjects: Project[] = [
     type: ProjectType.PubliciteTV,
     description:
       "Une publicite poetique et gourmande pour la marque de miel preferee des Francais",
-    image: "https://cache.marieclaire.fr/data/fichiers/4r/lune-de-miel.jpg",
+    thumbnail: "https://cache.marieclaire.fr/data/fichiers/4r/lune-de-miel.jpg",
     gallery: [
       randomImage(600, 400),
-      randomImage(600, 400),
+      "https://videos.pexels.com/video-files/1749202/1749202-720p.mp4",
       randomImage(600, 400),
     ],
     socialLinks: {
@@ -44,12 +44,13 @@ export const fakeProjects: Project[] = [
     size: "medium",
   },
   {
-    slug: "hermes",
-    title: "HERMÈS",
-    type: ProjectType.FilmCorporate,
-    description: "Une réalisation de film corporate pour Hermès",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738",
-    gallery: [randomImage(600, 400)],
+    slug: "camping-ben-bellec",
+    title: "Camping Ben Bellec",
+    type: ProjectType.Tourisme,
+    description:
+      "Un film promotionnel immersif pour le Camping Ben Bellec à Telgruc-sur-Mer en Bretagne.",
+    thumbnail: CampingBenBellecVideo,
+    gallery: [],
     socialLinks: {},
     size: "medium",
   },
@@ -58,7 +59,7 @@ export const fakeProjects: Project[] = [
     title: "DJI",
     type: ProjectType.SnackContent,
     description: "Un contenu snack dynamique pour DJI",
-    image: "https://images.unsplash.com/photo-1533063319369-0de118afe00a",
+    thumbnail: "https://images.unsplash.com/photo-1533063319369-0de118afe00a",
     gallery: [randomImage(600, 400)],
     socialLinks: {},
     size: "small",
@@ -68,7 +69,7 @@ export const fakeProjects: Project[] = [
     title: "CLUBMED",
     type: ProjectType.FilmEvenementiel,
     description: "Un film événementiel captivant pour CLUBMED",
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
+    thumbnail: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
     gallery: [randomImage(600, 400)],
     socialLinks: {},
     size: "large",
@@ -78,7 +79,7 @@ export const fakeProjects: Project[] = [
     title: "GUYANE",
     type: ProjectType.Tourisme,
     description: "Une aventure visuelle en Guyane",
-    image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce",
+    thumbnail: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce",
     gallery: [randomImage(600, 400)],
     socialLinks: {},
     size: "medium",
