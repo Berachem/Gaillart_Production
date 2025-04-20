@@ -12,11 +12,7 @@ export const fakeProjects: Project[] = [
     description:
       "Une campagne publicitaire captivante mettant en vedette les athletes de la Federation Francaise de la Montagne et de l'Escalade",
     thumbnail: "https://images.unsplash.com/photo-1522163182402-834f871fd851",
-    gallery: [
-      randomImage(600, 400),
-      "https://videos.pexels.com/video-files/3045163/3045163-720p.mp4",
-      randomImage(600, 400),
-    ],
+    gallery: [],
     socialLinks: {
       facebook: "https://facebook.com/blank-ffme",
       twitter: "https://twitter.com/blank-ffme",
@@ -32,11 +28,7 @@ export const fakeProjects: Project[] = [
     description:
       "Une publicite poetique et gourmande pour la marque de miel preferee des Francais",
     thumbnail: "https://cache.marieclaire.fr/data/fichiers/4r/lune-de-miel.jpg",
-    gallery: [
-      randomImage(600, 400),
-      "https://videos.pexels.com/video-files/1749202/1749202-720p.mp4",
-      randomImage(600, 400),
-    ],
+    gallery: [],
     socialLinks: {
       facebook: "https://facebook.com/lune-de-miel",
       instagram: "https://instagram.com/lune-de-miel",
@@ -60,7 +52,7 @@ export const fakeProjects: Project[] = [
     type: ProjectType.SnackContent,
     description: "Un contenu snack dynamique pour DJI",
     thumbnail: "https://images.unsplash.com/photo-1533063319369-0de118afe00a",
-    gallery: [randomImage(600, 400)],
+    gallery: [],
     socialLinks: {},
     size: "small",
   },
@@ -70,7 +62,7 @@ export const fakeProjects: Project[] = [
     type: ProjectType.FilmEvenementiel,
     description: "Un film événementiel captivant pour CLUBMED",
     thumbnail: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
-    gallery: [randomImage(600, 400)],
+    gallery: [],
     socialLinks: {},
     size: "large",
   },
@@ -80,7 +72,7 @@ export const fakeProjects: Project[] = [
     type: ProjectType.Tourisme,
     description: "Une aventure visuelle en Guyane",
     thumbnail: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce",
-    gallery: [randomImage(600, 400)],
+    gallery: [],
     socialLinks: {},
     size: "medium",
   },
