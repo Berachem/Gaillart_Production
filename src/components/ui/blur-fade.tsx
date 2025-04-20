@@ -1,78 +1,47 @@
 "use client";
 
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  UseInViewOptions,
-  Variants,
-} from "motion/react";
-import { useRef } from "react";
-
-type MarginType = UseInViewOptions["margin"];
+import { motion } from "framer-motion";
+import { ReactNode, useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface BlurFadeProps {
-  children: React.ReactNode;
-  className?: string;
-  variant?: {
-    hidden: { y: number };
-    visible: { y: number };
-  };
-  duration?: number;
+  children: ReactNode;
   delay?: number;
-  offset?: number;
-  direction?: "up" | "down" | "left" | "right";
   inView?: boolean;
-  inViewMargin?: MarginType;
-  blur?: string;
 }
 
 export function BlurFade({
   children,
-  className,
-  variant,
-  duration = 0.4,
   delay = 0,
-  offset = 6,
-  direction = "down",
-  inView = false,
-  inViewMargin = "-50px",
-  blur = "6px",
+  inView: parentInView,
 }: BlurFadeProps) {
-  const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
-  const isInView = !inView || inViewResult;
-  const defaultVariants: Variants = {
-    hidden: {
-      [direction === "left" || direction === "right" ? "x" : "y"]:
-        direction === "right" || direction === "down" ? -offset : offset,
-      opacity: 0,
-      filter: `blur(${blur})`,
-    },
-    visible: {
-      [direction === "left" || direction === "right" ? "x" : "y"]: 0,
-      opacity: 1,
-      filter: `blur(0px)`,
-    },
-  };
-  const combinedVariants = variant || defaultVariants;
+  const [ref, isInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [mounted, setMounted] = useState(false);
+
+  // Utilisons useEffect pour mettre à jour l'état après le montage du composant
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Si inView est fourni comme prop, utilisez-le, sinon utilisez l'état interne isInView
+  const elementIsInView = parentInView !== undefined ? parentInView : isInView;
+
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
-        variants={combinedVariants}
-        transition={{
-          delay: 0.04 + delay,
-          duration,
-          ease: "easeOut",
-        }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      ref={ref}
+      initial={
+        mounted
+          ? { opacity: 0, filter: "blur(10px)" }
+          : { opacity: 1, filter: "blur(0px)" }
+      }
+      animate={
+        elementIsInView
+          ? { opacity: 1, filter: "blur(0px)" }
+          : { opacity: 0, filter: "blur(10px)" }
+      }
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
   );
 }

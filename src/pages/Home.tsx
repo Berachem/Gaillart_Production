@@ -6,19 +6,30 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { fakeProjects } from "@/fakeProjects";
 import { Footer } from "@/components/Footer";
-import Marquee from "react-fast-marquee"; // <-- nouvel import
+import Marquee from "react-fast-marquee";
 import { WeDoFancy } from "@/components/WeDoFancy";
 
 import GAILLART_LOGO from "../assets/img/gaillart-logo.png";
 
 export function Home() {
-  const [heroRef, heroInView] = useInView({ triggerOnce: true });
-  const [projectsRef, projectsInView] = useInView({ triggerOnce: true });
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [projectsRef, projectsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [categoriesRef, categoriesInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   const categories = [
     {
       title: "Publicité TV",
-      image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae",
+      image:
+        "https://plus.unsplash.com/premium_photo-1682126367699-e925894017b5?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       title: "Film Corporate",
@@ -84,6 +95,7 @@ export function Home() {
           loop
           playsInline
           className="absolute w-full h-full object-cover"
+          preload="auto"
         >
           <source
             src="https://videos.pexels.com/video-files/7689163/7689163-uhd_2732_1440_24fps.mp4"
@@ -127,6 +139,7 @@ export function Home() {
             src={GAILLART_LOGO}
             alt="Gaillart Production"
             className="h-56 md:h-96 mb-6 mx-auto"
+            loading="eager"
           />
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
             <strong>Nous créons</strong> des récits audiovisuels captivants qui{" "}
@@ -136,19 +149,21 @@ export function Home() {
       </section>
 
       {/* Projects Section */}
-      <section ref={projectsRef} className="py-24 px-6 md:px-12 ">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-[2000px] mx-auto"
-        >
+      <section ref={projectsRef} className="py-24 px-6 md:px-12">
+        <div className="max-w-[2000px] mx-auto">
           <BlurFade delay={0.25} inView>
             <h2 className="text-4xl md:text-5xl mb-16 text-center text-gold">
               <span>NOS </span> <span className="font-bold">RÉALISATIONS</span>
             </h2>
           </BlurFade>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              projectsInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 20 }
+            }
+            transition={{ duration: 0.8, staggerChildren: 0.1 }}
+          >
             {fakeProjects.map((project) => (
               <div key={project.slug}>
                 <ProjectCard
@@ -159,12 +174,12 @@ export function Home() {
                 />
               </div>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Categories Section */}
-      <section className="py-24 px-6 md:px-12 bg-black">
+      <section ref={categoriesRef} className="py-24 px-6 md:px-12 bg-black">
         <div className="max-w-[2000px] mx-auto">
           <BlurFade delay={0.25} inView>
             <h2 className="text-3xl md:text-4xl mb-16 text-center text-gold ">
@@ -174,7 +189,14 @@ export function Home() {
             </h2>
           </BlurFade>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-2 justify-items-center">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-y-2 justify-items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              categoriesInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 20 }
+            }
+            transition={{ duration: 0.8 }}
+          >
             {categories.map((category) => (
               <div
                 key={category.title}
@@ -184,6 +206,7 @@ export function Home() {
                   src={category.image}
                   alt={category.title}
                   className="w-full h-full object-cover darken-on-hover-media"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/60 transition-all duration-300">
                   <h3 className="text-2xl font-medium text-white text-center">
@@ -192,7 +215,7 @@ export function Home() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       <WeDoFancy />

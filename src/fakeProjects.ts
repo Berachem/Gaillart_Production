@@ -31,7 +31,7 @@ export const fakeProjects: Project[] = [
     type: ProjectType.PubliciteTV,
     description:
       "Une publicite poetique et gourmande pour la marque de miel preferee des Francais",
-    image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae",
+    image: "https://cache.marieclaire.fr/data/fichiers/4r/lune-de-miel.jpg",
     gallery: [
       randomImage(600, 400),
       randomImage(600, 400),
