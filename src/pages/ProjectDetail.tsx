@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { MediaRenderer } from "@/components/MediaRenderer";
@@ -16,6 +16,8 @@ import {
   VolumeX,
   Play,
   Pause,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 
@@ -36,8 +38,17 @@ export function ProjectDetail() {
 
   // États pour contrôler la vidéo
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isFull, setIsFull] = useState(false);
+
+  // écouteur changement fullscreen
+  useEffect(() => {
+    const onFsChange = () => setIsFull(!!document.fullscreenElement);
+    document.addEventListener("fullscreenchange", onFsChange);
+    return () => document.removeEventListener("fullscreenchange", onFsChange);
+  }, []);
 
   // bascule le son et met à jour la vidéo
   const toggleMute = () => {
@@ -60,6 +71,16 @@ export function ProjectDetail() {
     }
   };
 
+  // toggle fullscreen
+  const toggleFull = () => {
+    if (!containerRef.current) return;
+    if (!document.fullscreenElement) {
+      containerRef.current.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   if (!project) return <div>Project not found</div>;
 
   const isHeroVideo = isVideo(project.thumbnail);
@@ -67,7 +88,7 @@ export function ProjectDetail() {
   return (
     <div className="overflow-x-hidden bg-black text-white pb-5">
       {/* Hero Media - Hauteur augmentée */}
-      <div className="h-[85vh] relative">
+      <div ref={containerRef} className="h-[85vh] relative">
         {isHeroVideo ? (
           <>
             <video
@@ -80,7 +101,7 @@ export function ProjectDetail() {
               muted={isMuted}
             />
             {/* Contrôles de la vidéo */}
-            <div className="absolute bottom-8 right-8 flex space-x-4 z-10">
+            <div className="absolute bottom-8 right-8 flex space-x-3 z-10">
               <button
                 onClick={toggleMute}
                 className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition-all duration-300"
@@ -101,14 +122,36 @@ export function ProjectDetail() {
                   <Play className="w-6 h-6 text-white" />
                 )}
               </button>
+              <button
+                onClick={toggleFull}
+                className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition"
+              >
+                {isFull ? (
+                  <Minimize2 className="w-6 h-6 text-white" />
+                ) : (
+                  <Maximize2 className="w-6 h-6 text-white" />
+                )}
+              </button>
             </div>
           </>
         ) : (
-          <img
-            src={project.thumbnail}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
+          <>
+            <img
+              src={project.thumbnail}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <button
+              onClick={toggleFull}
+              className="absolute bottom-8 right-8 bg-black/60 hover:bg-black/80 p-3 rounded-full transition z-10"
+            >
+              {isFull ? (
+                <Minimize2 className="w-6 h-6 text-white" />
+              ) : (
+                <Maximize2 className="w-6 h-6 text-white" />
+              )}
+            </button>
+          </>
         )}
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.div
