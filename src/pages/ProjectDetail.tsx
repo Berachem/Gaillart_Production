@@ -36,7 +36,7 @@ export function ProjectDetail() {
 
   // États pour contrôler la vidéo
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
 
   // bascule le son et met à jour la vidéo
