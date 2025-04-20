@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { MediaRenderer } from "@/components/MediaRenderer";
