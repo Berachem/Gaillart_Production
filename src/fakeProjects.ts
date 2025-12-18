@@ -1,8 +1,8 @@
 import { Project } from "@/types/Project";
 import { ProjectType } from "@/types/ProjectType";
 import CampingBenBellecVideo from "@/assets/projects/camping_ben_bellec/videoLongue.mp4";
-const randomImage = (width: number, height: number) =>
-  `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
+//const randomImage = (width: number, height: number) =>
+ // `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
 
 export const fakeProjects: Project[] = [
   {
