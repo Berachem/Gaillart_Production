@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-import GAILLART_LOGO from "../assets/img/gaillart-logo-horizontal.png";
+import GAILLART_LOGO from "../assets/img/gaillart-logo-v2.png";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

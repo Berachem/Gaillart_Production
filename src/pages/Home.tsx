@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer";
 import Marquee from "react-fast-marquee";
 import { WeDoFancy } from "@/components/WeDoFancy";
 
-import GAILLART_LOGO from "../assets/img/gaillart-logo.png";
+import GAILLART_LOGO from "../assets/img/gaillart-logo-v2.png";
 
 export function Home() {
   const [heroRef, heroInView] = useInView({
@@ -140,7 +140,7 @@ export function Home() {
           <img
             src={GAILLART_LOGO}
             alt="Gaillart Production"
-            className="h-56 md:h-96 mb-6 mx-auto"
+            className="h-42 md:h-48 mb-6 mx-auto"
             loading="eager"
           />
           <p className="text-xl md:text-2xl max-w-2xl mx-auto ">
