@@ -24,7 +24,7 @@ function WeDoFancy() {
               "des plans en drones FPV 🚁",
               "montages vidéos 🎥",
               "animations 3D 🚀",
-              //"des films de mariage 🎉",
+              "des films de mariage 💍",
               "des clips musicaux 🎵",
               "publicités 📺",
             ]}
