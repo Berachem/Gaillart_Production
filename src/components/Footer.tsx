@@ -1,4 +1,4 @@
-import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+﻿import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 import { YoutubeIcon } from "lucide-react";
 
 export function Footer({
@@ -80,13 +80,13 @@ export function Footer({
           réservés.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center mt-4 ">
-          <a className="mb-4 md:mb-0 md:mr-4 text-gray-500">
-            Conditions Générales
+          <a href="/cgv" className="mb-4 md:mb-0 md:mr-4 text-gray-500">
+            Conditions Générales de Vente (CGV)
           </a>
-          {/*       <a className="mb-4 md:mb-0 md:mr-4 text-gray-500">
-            Politique de Confidentialité
+          {/*       <a href="/cgv" className="mb-4 md:mb-0 md:mr-4 text-gray-500">
+            Politique de ConfidentialitÃ©
           </a>
-          <a className="mb-4 md:mb-0 md:mr-4 text-gray-500">Mentions Légales</a> */}
+          <a href="/cgv" className="mb-4 md:mb-0 md:mr-4 text-gray-500">Mentions LÃ©gales</a> */}
         </div>
       </div>
     </footer>

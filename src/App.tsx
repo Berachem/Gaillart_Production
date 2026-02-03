@@ -5,6 +5,7 @@ import { Home } from "@/pages/Home";
 import { Projects } from "@/pages/Projects";
 import Contact from "./pages/Contact";
 import { About } from "./pages/About";
+import { CGV } from "@/pages/CGV";
 import "./styles/video-controls.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cgv" element={<CGV />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </Router>

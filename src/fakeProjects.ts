@@ -2,7 +2,7 @@ import { Project } from "@/types/Project";
 import { ProjectType } from "@/types/ProjectType";
 import CampingBenBellecVideo from "@/assets/projects/camping_ben_bellec/videoLongue.mp4";
 //const randomImage = (width: number, height: number) =>
- // `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
+// `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
 
 export const fakeProjects: Project[] = [
   {
@@ -36,11 +36,11 @@ export const fakeProjects: Project[] = [
     size: "medium",
   },
   {
-    slug: "camping-ben-bellec",
-    title: "Camping Ben Bellec",
+    slug: "camping-pen-bellec",
+    title: "Camping Pen Bellec",
     type: ProjectType.Tourisme,
     description:
-      "Un film promotionnel immersif pour le Camping Ben Bellec à Telgruc-sur-Mer en Bretagne.",
+      "Un film promotionnel immersif pour le Camping Pen Bellec à Telgruc-sur-Mer en Bretagne.",
     thumbnail: CampingBenBellecVideo,
     gallery: [],
     socialLinks: {},
