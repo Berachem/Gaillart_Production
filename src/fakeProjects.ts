@@ -7,8 +7,8 @@ import AmazonGreeceeVideo from "@/assets/projects/amazon-greecee/amazon-greecee.
 
 export const fakeProjects: Project[] = [
   {
-    slug: "amazon-greecee",
-    title: " Amazon x GreeceE",
+    slug: "amazon-greece",
+    title: " Amazon x Greece",
     type: ProjectType.Realisation3D,
     description:
       "Une réalisation 3D immersive et spectaculaire, conçue pour donner vie à un univers visuel saisissant et mettre en valeur chaque détail avec un réalisme cinématographique.",
