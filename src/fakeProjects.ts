@@ -1,23 +1,24 @@
 import { Project } from "@/types/Project";
 import { ProjectType } from "@/types/ProjectType";
 import CampingBenBellecVideo from "@/assets/projects/camping_ben_bellec/videoLongue.mp4";
+import AmazonGreeceeVideo from "@/assets/projects/amazon-greecee/amazon-greecee.mp4";
 //const randomImage = (width: number, height: number) =>
 // `https://random.imagecdn.app/${width}/${height}?random=${Math.random()}`;
 
 export const fakeProjects: Project[] = [
   {
-    slug: "blank-ffme",
-    title: "Blank × FFME",
-    type: ProjectType.PubliciteTV,
+    slug: "amazon-greecee",
+    title: " Amazon x GreeceE",
+    type: ProjectType.Realisation3D,
     description:
-      "Une campagne publicitaire captivante mettant en vedette les athletes de la Federation Francaise de la Montagne et de l'Escalade",
-    thumbnail: "https://images.unsplash.com/photo-1522163182402-834f871fd851",
+      "Une réalisation 3D immersive et spectaculaire, conçue pour donner vie à un univers visuel saisissant et mettre en valeur chaque détail avec un réalisme cinématographique.",
+    thumbnail: AmazonGreeceeVideo,
     gallery: [],
     socialLinks: {
-      facebook: "https://facebook.com/blank-ffme",
+      /*    facebook: "https://facebook.com/blank-ffme",
       twitter: "https://twitter.com/blank-ffme",
       instagram: "https://instagram.com/blank-ffme",
-      linkedin: "https://linkedin.com/company/blank-ffme",
+      linkedin: "https://linkedin.com/company/blank-ffme", */
     },
     size: "large",
   },

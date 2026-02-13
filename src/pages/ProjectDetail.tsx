@@ -43,11 +43,27 @@ export function ProjectDetail() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isFull, setIsFull] = useState(false);
 
-  // écouteur changement fullscreen
+  // écouteur changement fullscreen (supportant les préfixes navigateurs)
   useEffect(() => {
-    const onFsChange = () => setIsFull(!!document.fullscreenElement);
+    const onFsChange = () => {
+      setIsFull(
+        !!(
+          document.fullscreenElement ||
+          (document as any).webkitFullscreenElement ||
+          (document as any).mozFullScreenElement
+        ),
+      );
+    };
+
     document.addEventListener("fullscreenchange", onFsChange);
-    return () => document.removeEventListener("fullscreenchange", onFsChange);
+    document.addEventListener("webkitfullscreenchange", onFsChange);
+    document.addEventListener("mozfullscreenchange", onFsChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", onFsChange);
+      document.removeEventListener("webkitfullscreenchange", onFsChange);
+      document.removeEventListener("mozfullscreenchange", onFsChange);
+    };
   }, []);
 
   // bascule le son et met à jour la vidéo
@@ -71,13 +87,40 @@ export function ProjectDetail() {
     }
   };
 
-  // toggle fullscreen
+  // toggle fullscreen avec support mobile
   const toggleFull = () => {
     if (!containerRef.current) return;
-    if (!document.fullscreenElement) {
-      containerRef.current.requestFullscreen();
+
+    const elem = containerRef.current as any;
+    const isCurrentlyFullscreen =
+      document.fullscreenElement ||
+      (document as any).webkitFullscreenElement ||
+      (document as any).mozFullScreenElement;
+
+    if (!isCurrentlyFullscreen) {
+      // Entrer en fullscreen
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch((err: Error) => {
+          console.log("Erreur fullscreen:", err);
+          // Fallback webkit
+          if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+          }
+        });
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      }
     } else {
-      document.exitFullscreen();
+      // Quitter le fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if ((document as any).webkitExitFullscreen) {
+        (document as any).webkitExitFullscreen();
+      } else if ((document as any).mozCancelFullScreen) {
+        (document as any).mozCancelFullScreen();
+      }
     }
   };
 

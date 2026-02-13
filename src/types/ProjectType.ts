@@ -5,4 +5,5 @@ export enum ProjectType {
   FilmEvenementiel = "Film Événementiel",
   Tourisme = "Tourisme",
   MicroDocumentaire = "Micro Documentaire",
+  Realisation3D = "Réalisation 3D",
 }
