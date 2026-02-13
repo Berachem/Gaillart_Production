@@ -35,11 +35,14 @@ export function ProjectDetail() {
   const { slug } = useParams();
   const project = fakeProjects.find((p) => p.slug === slug);
   const otherProjects = fakeProjects.filter((p) => p.slug !== slug);
+  const isHeroVideo = project ? isVideo(project.thumbnail) : false;
 
   // États pour contrôler la vidéo
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFull, setIsFull] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   // écouteur changement fullscreen (supportant les préfixes navigateurs)
   useEffect(() => {
@@ -65,19 +68,95 @@ export function ProjectDetail() {
   }, []);
 
   // bascule le son et met à jour la vidéo
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !isHeroVideo) return;
+
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    const onVolumeChange = () => setIsMuted(video.muted);
+
+    video.addEventListener("play", onPlay);
+    video.addEventListener("pause", onPause);
+    video.addEventListener("volumechange", onVolumeChange);
+
+    const startVideo = async () => {
+      video.muted = false;
+      video.volume = 1;
+
+      try {
+        await video.play();
+        setIsPlaying(true);
+        setIsMuted(false);
+      } catch {
+        // Fallback: some browsers block autoplay with audio.
+        video.muted = true;
+        setIsMuted(true);
+        try {
+          await video.play();
+          setIsPlaying(true);
+        } catch {
+          setIsPlaying(false);
+        }
+      }
+    };
+
+    const tryEnableSoundOnGesture = async () => {
+      const currentVideo = videoRef.current;
+      if (!currentVideo) return;
+      currentVideo.muted = false;
+      currentVideo.volume = 1;
+      try {
+        await currentVideo.play();
+        setIsPlaying(true);
+        setIsMuted(false);
+      } catch {
+        // Keep current state when replay fails.
+      }
+    };
+
+    window.addEventListener("pointerdown", tryEnableSoundOnGesture, {
+      once: true,
+    });
+    window.addEventListener("keydown", tryEnableSoundOnGesture, { once: true });
+
+    void startVideo();
+
+    return () => {
+      video.removeEventListener("play", onPlay);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("volumechange", onVolumeChange);
+      window.removeEventListener("pointerdown", tryEnableSoundOnGesture);
+      window.removeEventListener("keydown", tryEnableSoundOnGesture);
+    };
+  }, [isHeroVideo, project?.thumbnail]);
+
   const toggleMute = () => {
-    console.log("Toggle mute");
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = !video.muted;
+    if (!video.muted && video.volume === 0) {
+      video.volume = 1;
+    }
+    setIsMuted(video.muted);
   };
 
   // met en pause / reprend la vidéo et met à jour l'état
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
+  const togglePlay = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
     } else {
-      videoRef.current.pause();
+      video.pause();
+      setIsPlaying(false);
     }
   };
 
@@ -120,8 +199,6 @@ export function ProjectDetail() {
 
   if (!project) return <div>Project not found</div>;
 
-  const isHeroVideo = isVideo(project.thumbnail);
-
   return (
     <div className="overflow-x-hidden bg-black text-white pb-5">
       {/* Hero Media - Hauteur augmentée */}
@@ -130,12 +207,13 @@ export function ProjectDetail() {
           <>
             <video
               ref={videoRef}
+              key={project.slug}
               src={project.thumbnail}
               className="w-full h-full object-cover"
               autoPlay
               loop
               playsInline
-              muted={true}
+              muted={isMuted}
             />
             {/* Contrôles de la vidéo */}
             <div className="absolute bottom-8 right-8 flex space-x-3 z-10">
@@ -143,7 +221,7 @@ export function ProjectDetail() {
                 onClick={toggleMute}
                 className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition-all duration-300"
               >
-                {videoRef.current?.muted ? (
+                {isMuted ? (
                   <VolumeX className="w-6 h-6 text-white" />
                 ) : (
                   <Volume2 className="w-6 h-6 text-white" />
@@ -153,7 +231,7 @@ export function ProjectDetail() {
                 onClick={togglePlay}
                 className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition-all duration-300"
               >
-                {!videoRef.current?.paused ? (
+                {isPlaying ? (
                   <Pause className="w-6 h-6 text-white" />
                 ) : (
                   <Play className="w-6 h-6 text-white" />
@@ -161,7 +239,7 @@ export function ProjectDetail() {
               </button>
               <button
                 onClick={toggleFull}
-                className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition"
+                className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition md:flex hidden"
               >
                 {isFull ? (
                   <Minimize2 className="w-6 h-6 text-white" />
