@@ -39,8 +39,6 @@ export function ProjectDetail() {
   // États pour contrôler la vidéo
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [isFull, setIsFull] = useState(false);
 
   // écouteur changement fullscreen (supportant les préfixes navigateurs)
@@ -70,9 +68,7 @@ export function ProjectDetail() {
   const toggleMute = () => {
     console.log("Toggle mute");
     if (!videoRef.current) return;
-    const newMuted = !videoRef.current.muted;
-    videoRef.current.muted = newMuted;
-    setIsMuted(newMuted);
+    videoRef.current.muted = !videoRef.current.muted;
   };
 
   // met en pause / reprend la vidéo et met à jour l'état
@@ -80,10 +76,8 @@ export function ProjectDetail() {
     if (!videoRef.current) return;
     if (videoRef.current.paused) {
       videoRef.current.play();
-      setIsPlaying(true);
     } else {
       videoRef.current.pause();
-      setIsPlaying(false);
     }
   };
 
@@ -141,7 +135,7 @@ export function ProjectDetail() {
               autoPlay
               loop
               playsInline
-              muted={isMuted}
+              muted={true}
             />
             {/* Contrôles de la vidéo */}
             <div className="absolute bottom-8 right-8 flex space-x-3 z-10">
@@ -149,7 +143,7 @@ export function ProjectDetail() {
                 onClick={toggleMute}
                 className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition-all duration-300"
               >
-                {isMuted ? (
+                {videoRef.current?.muted ? (
                   <VolumeX className="w-6 h-6 text-white" />
                 ) : (
                   <Volume2 className="w-6 h-6 text-white" />
@@ -159,7 +153,7 @@ export function ProjectDetail() {
                 onClick={togglePlay}
                 className="bg-black/60 hover:bg-black/80 p-3 rounded-full transition-all duration-300"
               >
-                {isPlaying ? (
+                {!videoRef.current?.paused ? (
                   <Pause className="w-6 h-6 text-white" />
                 ) : (
                   <Play className="w-6 h-6 text-white" />

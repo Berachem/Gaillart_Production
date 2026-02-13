@@ -14,8 +14,7 @@
       }
     },
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
