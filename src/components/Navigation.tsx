@@ -17,7 +17,7 @@ export function Navigation() {
 
   const menuItems = [
     { label: "Accueil", path: "/" },
-    { label: "Projets", path: "/projects" },
+    /*  { label: "Projets", path: "/projects" }, */
     { label: "A propos", path: "/about" },
     { label: "Contact", path: "/contact" },
   ];

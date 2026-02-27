@@ -192,7 +192,7 @@ export function Home() {
           </BlurFade>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-y-2 justify-items-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-2"
             initial={{ opacity: 0, y: 20 }}
             animate={
               categoriesInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 20 }
