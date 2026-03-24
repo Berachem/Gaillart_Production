@@ -144,14 +144,14 @@ const Contact: React.FC = () => {
                   >
                     <InstagramLogoIcon className="w-6 h-6" />
                   </a>
-                  <a
+                  {/* <a
                     href="https://discord.gg/PbcNZsXyyb"
                     target="_blank"
                     rel="noreferrer"
                     className="mr-4"
                   >
                     <DiscordLogoIcon className="w-6 h-6" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
