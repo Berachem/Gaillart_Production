@@ -1,4 +1,4 @@
-﻿import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+﻿import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { YoutubeIcon } from "lucide-react";
 
 export function Footer({
