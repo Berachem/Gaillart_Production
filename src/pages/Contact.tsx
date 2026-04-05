@@ -7,7 +7,7 @@ import { Film, YoutubeIcon } from "lucide-react";
 import React, { useState, useRef } from "react";
 import BG_Contact from "../assets/videos/bg-contact.mp4";
 import emailjs from "@emailjs/browser";
-import { DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
+import {  InstagramLogoIcon } from "@radix-ui/react-icons";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -144,14 +144,14 @@ const Contact: React.FC = () => {
                   >
                     <InstagramLogoIcon className="w-6 h-6" />
                   </a>
-                  <a
+               {/*    <a
                     href="https://discord.gg/PbcNZsXyyb"
                     target="_blank"
                     rel="noreferrer"
                     className="mr-4"
                   >
                     <DiscordLogoIcon className="w-6 h-6" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
